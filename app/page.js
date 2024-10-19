@@ -7,7 +7,7 @@ export default function Home() {
   const [messages, setMessages] = useState([
     {
       role: 'assistant',
-      content: "Hello! I&apos;m a part of Jason&apos;s AI Space as your versatile support and virtual assistant. How can I assist you today?",
+      content: "Hello! I am a part of Jason's AI Space as your versatile support and virtual assistant. How can I assist you today?",
     },
   ]);
   const [message, setMessage] = useState('');
@@ -92,25 +92,30 @@ export default function Home() {
     >
       <Stack
         direction="column"
-        width="600px"
-        height="700px"
+        width="700px"
+        height="800px"
         border="1px solid #333"
         boxShadow={5}
         borderRadius={3}
-        p={3}
-        spacing={3}
+        p={4}
+        spacing={4} 
         bgcolor="#2b2b2b"
       >
-        <Typography variant="h5" align="center" color="#ffffff">
+        <Typography 
+          variant="h4" 
+          align="center" 
+          color="#ffffff" 
+          sx={{ fontFamily: 'Bubblegum Sans, cursive' }}
+        >
           {"Jason's AI Space"}
         </Typography>
         <Stack
           direction="column"
-          spacing={2}
+          spacing={3}
           flexGrow={1}
           overflow="auto"
           maxHeight="100%"
-          sx={{ paddingRight: '8px' }}
+          sx={{ paddingRight: '12px' }} 
         >
           {messages.map((message, index) => (
             <Box
@@ -122,9 +127,13 @@ export default function Home() {
                 bgcolor={message.role === 'assistant' ? '#3a3a3a' : '#00796b'}
                 color={message.role === 'assistant' ? '#e0f7fa' : '#ffffff'}
                 borderRadius={16}
-                p={2}
-                maxWidth="75%"
-                sx={{ fontSize: '14px', boxShadow: 2 }}
+                p={3} 
+                maxWidth="80%" 
+                sx={{ 
+                  fontSize: '18px', 
+                  fontFamily: 'Bubblegum Sans, cursive', 
+                  boxShadow: 3 
+                }}
               >
                 {message.content}
               </Box>
@@ -132,11 +141,14 @@ export default function Home() {
           ))}
           <div ref={messagesEndRef} />
         </Stack>
-        <Stack direction="row" spacing={2}>
+        <Stack direction="row" spacing={3} alignItems="flex-end">
           <TextField
             label="Type your message..."
             variant="outlined"
             fullWidth
+            multiline 
+            minRows={3} 
+            maxRows={6} 
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             onKeyPress={handleKeyPress} 
@@ -144,12 +156,15 @@ export default function Home() {
             InputProps={{
               style: {
                 color: '#fff',
-                borderRadius: '8px',
+                borderRadius: '12px',
                 backgroundColor: '#424242',
+                fontSize: '18px', 
+                fontFamily: 'Bubblegum Sans, cursive',
+                padding: '12px', 
               },
             }}
             InputLabelProps={{
-              style: { color: '#bdbdbd' },
+              style: { color: '#bdbdbd', fontFamily: 'Bubblegum Sans, cursive', fontSize: '18px' },
             }}
           />
           <Button
@@ -157,9 +172,15 @@ export default function Home() {
             color="primary"
             onClick={sendMessage}
             disabled={isLoading} 
-            sx={{ backgroundColor: '#00796b' }}
+            sx={{ 
+              backgroundColor: '#00796b',
+              fontSize: '18px',
+              fontFamily: 'Bubblegum Sans, cursive',
+              padding: '14px 24px',
+              minWidth: '100px', 
+            }}
           >
-            {isLoading ? <CircularProgress size={24} color="inherit" /> : 'Send'}
+            {isLoading ? <CircularProgress size={28} color="inherit" /> : 'Send'}
           </Button>
         </Stack>
       </Stack>
