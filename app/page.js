@@ -102,7 +102,7 @@ export default function Home() {
         bgcolor="#2b2b2b"
       >
         <Typography variant="h5" align="center" color="#ffffff">
-          Jason's AI Space
+          {"Jason's AI Space"}
         </Typography>
         <Stack
           direction="column"
