@@ -6,20 +6,25 @@ import {
   Stack, 
   TextField, 
   Typography, 
-  CircularProgress 
+  CircularProgress,
+  Link,
+  IconButton
 } from '@mui/material';
+import { LinkedIn, GitHub, Language } from '@mui/icons-material'; 
 import { useState, useRef, useEffect } from 'react';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { keyframes } from '@mui/system';
 
 export default function Home() {
-  const [messages, setMessages] = useState([
+  const initialMessages = [
     {
       role: 'assistant',
-      content: "Hello! I am a part of Jason's AI Space as your versatile support and virtual assistant. How can I assist you today?",
+      content: "Hey there! Thanks for taking the time to talk to me. I am an AI version of Jason who studies at Northeastern University. Ask me anything, but before you do, check out Jason's other projects through the links bellow me.",
     },
-  ]);
+  ];
+
+  const [messages, setMessages] = useState(initialMessages);
   const [message, setMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
@@ -59,7 +64,7 @@ export default function Home() {
       }
 
       const jsonResponse = await response.json(); 
-      const assistantMessageContent = jsonResponse[0]?.content || "I'm not sure about that, but let's find out together!";
+      const assistantMessageContent = jsonResponse[0]?.content || "Hm, I’m not 100% sure on that one, but I can dig into it with you. Let’s figure it out!";
 
       setMessages((prevMessages) => {
         let lastMessage = prevMessages[prevMessages.length - 1]; 
@@ -75,7 +80,7 @@ export default function Home() {
         ...prevMessages,
         {
           role: 'assistant',
-          content: "Oops! I encountered an error. Please try again later.",
+          content: "Whoops! Try again in a bit, and we’ll look at this together.",
         },
       ]);
     } finally {
@@ -88,6 +93,10 @@ export default function Home() {
       event.preventDefault(); 
       sendMessage(); 
     }
+  };
+
+  const resetMessages = () => {
+    setMessages(initialMessages);
   };
 
   const theme = useTheme();
@@ -182,7 +191,6 @@ export default function Home() {
           animation: `${float} 7s ease-in-out infinite`,
         }}
       />
-
       <Stack
         direction="column"
         width={isSmDown ? '100%' : isMdDown ? '90%' : '700px'} 
@@ -234,6 +242,7 @@ export default function Home() {
         >
           {"Jason's AI Space"}
         </Typography>
+
         <Box
           flexGrow={1}
           overflow="auto"
@@ -270,6 +279,7 @@ export default function Home() {
           ))}
           <div ref={messagesEndRef} />
         </Box>
+
         <Stack 
           direction={isSmDown ? 'column' : 'row'} 
           spacing={3} 
@@ -321,29 +331,102 @@ export default function Home() {
               }, 
             }}
           />
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={sendMessage}
-            disabled={isLoading} 
-            sx={{ 
-              backgroundColor: '#00796b',
-              fontSize: '18px',
-              fontFamily: 'Roboto, sans-serif',
-              padding: isSmDown ? '14px 24px' : '14px 24px',
-              minWidth: '100px', 
-              height: isSmDown ? 'auto' : '56px', 
-              border: '2px solid #000',
-              borderRadius: '16px',
-              boxShadow: '0 4px 8px rgba(0,0,0,0.3)',
-              '&:hover': {
-                backgroundColor: '#00695c',
-              },
-            }}
+          <Stack
+            direction={isSmDown ? 'column' : 'row'}
+            spacing={2}
+            width={isSmDown ? '100%' : 'auto'}
           >
-            {isLoading ? <CircularProgress size={28} color="inherit" /> : 'Send'}
-          </Button>
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={sendMessage}
+              disabled={isLoading} 
+              sx={{ 
+                backgroundColor: '#00796b',
+                fontSize: '18px',
+                fontFamily: 'Roboto, sans-serif',
+                padding: isSmDown ? '14px 24px' : '14px 24px',
+                minWidth: '100px', 
+                height: isSmDown ? 'auto' : '56px', 
+                border: '2px solid #000',
+                borderRadius: '16px',
+                boxShadow: '0 4px 8px rgba(0,0,0,0.3)',
+                '&:hover': {
+                  backgroundColor: '#00695c',
+                },
+              }}
+            >
+              {isLoading ? <CircularProgress size={28} color="inherit" /> : 'Send'}
+            </Button>
+            <Button
+              variant="outlined"
+              color="secondary"
+              onClick={resetMessages}
+              disabled={isLoading}
+              sx={{
+                borderColor: '#000',
+                color: '#ffffff',
+                fontSize: '18px',
+                fontFamily: 'Roboto, sans-serif',
+                padding: isSmDown ? '14px 24px' : '14px 24px',
+                minWidth: '100px', 
+                height: isSmDown ? 'auto' : '56px', 
+                borderRadius: '16px',
+                boxShadow: '0 4px 8px rgba(0,0,0,0.3)',
+                backgroundColor: '#d32f2f',
+                '&:hover': {
+                  backgroundColor: '#c62828',
+                  borderColor: '#c62828',
+                },
+              }}
+            >
+              Reset
+            </Button>
+          </Stack>
         </Stack>
+
+        <Box
+          mt={4}
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          gap={2}
+          sx={{
+            position: 'relative',
+            zIndex: 1,
+          }}
+        >
+          <Link 
+            href="https://www.linkedin.com/in/jasonbalayev/" 
+            target="_blank" 
+            rel="noopener"
+            underline="none"
+            sx={{ color: '#0e76a8', display: 'flex', alignItems: 'center', gap: 0.5 }}
+          >
+            <LinkedIn />
+            LinkedIn
+          </Link>
+          <Link 
+            href="https://github.com/JasonBalayev" 
+            target="_blank" 
+            rel="noopener"
+            underline="none"
+            sx={{ color: '#171515', display: 'flex', alignItems: 'center', gap: 0.5 }}
+          >
+            <GitHub />
+            GitHub
+          </Link>
+          <Link 
+            href="https://jasonbalayev.dev/" 
+            target="_blank" 
+            rel="noopener"
+            underline="none"
+            sx={{ color: '#ffffff', display: 'flex', alignItems: 'center', gap: 0.5 }}
+          >
+            <Language />
+            Website
+          </Link>
+        </Box>
       </Stack>
     </Box>
   );
