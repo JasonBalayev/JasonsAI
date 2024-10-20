@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Jason's AI Space 🤖
 
-## Getting Started
+[**(Click here for GitHub)**](https://github.com/JasonBalayev/JasonsAI)
 
-First, run the development server:
+**Jason's AI Space** is a virtual assistant modeled as an AI version of Jason Balayev. This assistant is designed to answer questions using an advanced language model, providing a free space where users can engage with Jason's digital twin to gain insights, learn, and explore a variety of topics.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Live Demo
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Check out the live version of the app here: [**Check it Out Live**](https://jasonbalayev.dev)
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Table of Contents
 
-## Learn More
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Project Overview](#project-overview)
+- [Getting Started](#getting-started)
+- [Features in Detail](#features-in-detail)
+- [Contributing](#contributing)
+- [License](#license)
 
-To learn more about Next.js, take a look at the following resources:
+## Features
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- AI-powered virtual assistant providing intelligent answers to user queries.
+- Open space for users to interact, learn, and explore knowledge domains with a personalized AI experience.
+- Integrated with advanced AI and web technologies to offer seamless and intuitive interactions.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Tech Stack
 
-## Deploy on Vercel
+- **Frontend**: Next.js
+- **Backend**: Convex
+- **Deployment**: Vercel
+- **Language**: JavaScript
+- **Styling**: Tailwind CSS
+- **Authentication**: Clerk
+- **AI Integration**: OpenAI API
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Project Overview
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is designed as an intelligent, free platform where users can engage with Jason’s AI twin to explore, gain insights, and dive into various topics. The goal is to create a professional digital persona capable of providing thoughtful and accurate responses across diverse areas of knowledge.
+
