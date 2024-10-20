@@ -2,7 +2,7 @@
 
 [**(Click here for GitHub)**](https://github.com/JasonBalayev/JasonsAI)
 
-**Jason's AI Space** is a virtual assistant modeled as an AI version of Jason Balayev. This assistant is designed to answer questions using an advanced language model, providing a free space where users can engage with Jason's digital twin to gain insights, learn, and explore a variety of topics.
+**Jason's AI Space** is a virtual assistant modeled as an AI version of me (Jason Balayev). This assistant is designed to answer questions using an advanced language model, providing a free space where users can engage with Jason's digital twin to gain insights, learn, and explore a variety of topics.
 
 ## Live Demo
 
@@ -15,10 +15,6 @@ Check out the live version of the app here: [**Check it Out Live**](https://jaso
 - [Features](#features)
 - [Tech Stack](#tech-stack)
 - [Project Overview](#project-overview)
-- [Getting Started](#getting-started)
-- [Features in Detail](#features-in-detail)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Features
 
