@@ -55,7 +55,11 @@ export async function POST(req) {
 
   try {
     const response = await openai.chat.completions.create({
+<<<<<<< HEAD
       model: 'gpt-4',
+=======
+      model: 'gpt-4o-mini', 
+>>>>>>> 4f8cd0a3e0b6d8f810ef45ac21c478dc24e0b677
       messages: [
         { role: 'system', content: systemPrompt },
         { role: 'user', content: userMessage },

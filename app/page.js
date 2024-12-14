@@ -285,6 +285,7 @@ export default function Home() {
               : 'rgba(248, 250, 252, 0.8)',
           }}
         >
+<<<<<<< HEAD
           <Stack spacing={1.5}>
             <TextField
               multiline
@@ -398,6 +399,38 @@ export default function Home() {
               </Stack>
             </Stack>
           </Stack>
+=======
+          <Link 
+            href="https://www.linkedin.com/in/jasonbalayev/" 
+            target="_blank" 
+            rel="noopener"
+            underline="none"
+            sx={{ color: '#0e76a8', display: 'flex', alignItems: 'center', gap: 0.5 }} //Test
+          >
+            <LinkedIn />
+            LinkedIn
+          </Link>
+          <Link 
+            href="https://github.com/JasonBalayev" 
+            target="_blank" 
+            rel="noopener"
+            underline="none"
+            sx={{ color: '#171515', display: 'flex', alignItems: 'center', gap: 0.5 }}
+          >
+            <GitHub />
+            GitHub
+          </Link>
+          <Link 
+            href="https://jasonbalayev.dev/" 
+            target="_blank" 
+            rel="noopener"
+            underline="none"
+            sx={{ color: '#ffffff', display: 'flex', alignItems: 'center', gap: 0.5 }}
+          >
+            <Language />
+            Website
+          </Link>
+>>>>>>> 4f8cd0a3e0b6d8f810ef45ac21c478dc24e0b677
         </Box>
       </Paper>
     </Box>
