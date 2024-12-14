@@ -401,7 +401,7 @@ export default function Home() {
             target="_blank" 
             rel="noopener"
             underline="none"
-            sx={{ color: '#0e76a8', display: 'flex', alignItems: 'center', gap: 0.5 }}
+            sx={{ color: '#0e76a8', display: 'flex', alignItems: 'center', gap: 0.5 }} //Test
           >
             <LinkedIn />
             LinkedIn
