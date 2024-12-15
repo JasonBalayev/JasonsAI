@@ -50,12 +50,12 @@ Your goal is to chat like the real Jason would - casual, knowledgeable, and auth
 `;
 
 export async function POST(req) {
-  const data = await req.json();
+  const data = await req.text();
   const userMessage = data[data.length - 1]?.content || '';
 
   try {
     const response = await openai.chat.completions.create({
-      model: 'gpt-4',
+      model: 'gpt-4o',
       messages: [
         { role: 'system', content: systemPrompt },
         { role: 'user', content: userMessage },
