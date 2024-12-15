@@ -184,7 +184,7 @@ export default function Home() {
               fontWeight: 700,
             }}
           >
-            Jason&apos;s AI Assistant
+            Jason&apos;s AI Space
           </Typography>
           <IconButton 
             onClick={colorMode.toggleColorMode} 
