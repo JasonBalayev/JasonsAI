@@ -69,7 +69,7 @@ export default function Home() {
     setMessage(''); 
 
     try {
-      const response = await fetch('/api/chat', {
+      const response = await fetch('../pages/api', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
