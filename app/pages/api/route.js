@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import OpenAI from 'openai';
 
 const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY, 
+  apiKey: process.env.OPENAI_API_KEY,
 });
 
 const systemPrompt = `
@@ -50,16 +50,25 @@ Your goal is to chat like the real Jason would - casual, knowledgeable, and auth
 `;
 
 export async function POST(req) {
-  const data = await req.text();
-  const userMessage = data[data.length - 1]?.content || '';
+  let conversation = [];
+  try {
+    conversation = await req.json(); // parse the entire conversation array
+  } catch (err) {
+    console.error('Error parsing JSON:', err);
+    conversation = [];
+  }
+
+  // Build the messages array for OpenAI
+  // Start with the system message
+  const openAIMessages = [
+    { role: 'system', content: systemPrompt },
+    ...conversation // user & assistant messages as is
+  ];
 
   try {
     const response = await openai.chat.completions.create({
-      model: 'gpt-4o',
-      messages: [
-        { role: 'system', content: systemPrompt },
-        { role: 'user', content: userMessage },
-      ],
+      model: 'gpt-4',
+      messages: openAIMessages,
       max_tokens: 250,
       temperature: 0.9,
       presence_penalty: 0.6,
